@@ -10,14 +10,16 @@ using SPC.Core.Entities;
 using SPC.Core.Interfaces.Services;
 using SPC.Infrastructure.Services;
 using System.Text;
-using SPC.Infrastructure.Mappings; // Add this line
-using AutoMapper; // Add this line
-
+using SPC.Infrastructure.Mappings;
+using AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
+
+// Add AutoMapper configuration
+builder.Services.AddAutoMapper(new[] { typeof(MappingProfile).Assembly });
 
 // Add Identity configuration and JWT Authentication
 builder.Services.AddIdentity<User, IdentityRole<int>>(options =>
@@ -61,9 +63,6 @@ builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IDrugService, DrugService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<ISupplierService, SupplierService>();
-
-// Register AutoMapper
-
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
