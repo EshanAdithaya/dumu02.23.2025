@@ -2,12 +2,13 @@ using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using SPC.Core.DTOs.Order;
 using SPC.Core.Entities;
+using SPC.Core.Enums;
 using SPC.Core.Interfaces.Services;
 using SPC.Infrastructure.Data;
 
 namespace SPC.Infrastructure.Services;
 
-public class OrderService : IOrderService
+public class OrderService : IOrderService 
 {
     private readonly ApplicationDbContext _context;
     private readonly IMapper _mapper;
@@ -68,7 +69,7 @@ public class OrderService : IOrderService
         var order = new Order
         {
             PharmacyId = orderDto.PharmacyId,
-            Status = Enums.OrderStatus.Pending,
+            Status = OrderStatus.Pending,
             TotalAmount = totalAmount,
             CreatedAt = DateTime.UtcNow,
             OrderItems = orderItems
@@ -100,7 +101,7 @@ public class OrderService : IOrderService
         if (order == null)
             return false;
 
-        order.Status = Enums.OrderStatus.Cancelled;
+        order.Status = OrderStatus.Cancelled;
         order.UpdatedAt = DateTime.UtcNow;
 
         await _context.SaveChangesAsync();
