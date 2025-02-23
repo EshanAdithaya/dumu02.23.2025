@@ -10,6 +10,9 @@ using SPC.Core.Entities;
 using SPC.Core.Interfaces.Services;
 using SPC.Infrastructure.Services;
 using System.Text;
+using SPC.Infrastructure.Mappings; // Add this line
+using AutoMapper; // Add this line
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -57,6 +60,7 @@ builder.Services.AddScoped<IDrugService, DrugService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<ISupplierService, SupplierService>();
 
+// Register AutoMapper
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
