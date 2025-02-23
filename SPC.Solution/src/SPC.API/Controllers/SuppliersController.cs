@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using SPC.Core.DTOs.Supplier;
+using SPC.Core.DTOs.Suppliers;
 using SPC.Core.Interfaces.Services;
 
 namespace SPC.API.Controllers;

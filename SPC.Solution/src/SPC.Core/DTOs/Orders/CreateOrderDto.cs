@@ -1,23 +1,7 @@
-using System.ComponentModel.DataAnnotations;
-
-namespace SPC.Core.DTOs.Order;
+// File: SPC.Core/DTOs/Orders/CreateOrderDto.cs
+namespace SPC.Core.DTOs.Orders;
 
 public class CreateOrderDto
 {
-    [Required]
-    [StringLength(50)]
-    public string PharmacyId { get; set; }
-
-    [Required]
-    [MinLength(1)]
-    public List<CreateOrderItemDto> OrderItems { get; set; }
-}
-
-public class CreateOrderItemDto
-{
-    [Range(1, int.MaxValue)]
-    public int DrugId { get; set; }
-
-    [Range(1, int.MaxValue)]
-    public int Quantity { get; set; }
+    public List<CreateOrderItemDto> Items { get; set; }
 }

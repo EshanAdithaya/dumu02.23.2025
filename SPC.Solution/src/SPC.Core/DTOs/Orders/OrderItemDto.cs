@@ -1,4 +1,5 @@
-namespace SPC.Core.DTOs.Order;
+// File: SPC.Core/DTOs/Orders/OrderItemDto.cs
+namespace SPC.Core.DTOs.Orders;
 
 public class OrderItemDto
 {
