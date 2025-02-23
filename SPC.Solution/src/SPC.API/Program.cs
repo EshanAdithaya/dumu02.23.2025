@@ -6,11 +6,72 @@ using SPC.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql.Migrations;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.IdentityModel.Tokens;
+using SPC.Core.Entities;
+using SPC.Core.Interfaces.Services;
+using SPC.Infrastructure.Services;
+using System.Text;
+
+public class Program
+{
+    public static void ConfigureServices(WebApplicationBuilder builder)
+    {
+        var services = builder.Services;
+        var configuration = builder.Configuration;
+
+        // Add Identity configuration and JWT Authentication
+        services.AddIdentity<User, IdentityRole<int>>(options =>
+        {
+            // Password configuration
+            options.Password.RequireDigit = true;
+            options.Password.RequireLowercase = true;
+            options.Password.RequireUppercase = true;
+            options.Password.RequireNonAlphanumeric = true;
+            options.Password.RequiredLength = 8;
+        })
+        .AddEntityFrameworkStores<ApplicationDbContext>()
+        .AddDefaultTokenProviders();
+
+        // JWT Authentication
+        services.AddAuthentication(options =>
+        {
+            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+        })
+        .AddJwtBearer(options =>
+        {
+            options.TokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateLifetime = true,
+                ValidateIssuerSigningKey = true,
+                ValidIssuer = configuration["Jwt:Issuer"],
+                ValidAudience = configuration["Jwt:Audience"],
+                IssuerSigningKey = new SymmetricSecurityKey(
+                    Encoding.UTF8.GetBytes(configuration["Jwt:SecretKey"]))
+            };
+        });
+
+        // Add AutoMapper
+        services.AddAutoMapper(typeof(MappingProfile));
+
+        // Register services
+        services.AddScoped<IAuthService, AuthService>();
+        services.AddScoped<ITokenService, TokenService>();
+        services.AddScoped<IDrugService, DrugService>();
+        services.AddScoped<IOrderService, OrderService>();
+        services.AddScoped<ISupplierService, SupplierService>();
+    }
+}
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
+Program.ConfigureServices(builder);
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -103,6 +164,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 
