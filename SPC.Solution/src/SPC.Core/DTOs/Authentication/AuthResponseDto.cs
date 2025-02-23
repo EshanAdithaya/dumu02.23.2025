@@ -3,9 +3,9 @@ namespace SPC.Core.DTOs.Authentication;
 
 public class AuthResponseDto
 {
-    public string AccessToken { get; set; }
-    public string RefreshToken { get; set; }
-    public string Email { get; set; }
+    public required string AccessToken { get; set; }
+    public required string RefreshToken { get; set; }
+    public required string Email { get; set; }
     public int UserId { get; set; }
-    public List<string> Roles { get; set; }
+    public required List<string> Roles { get; set; }
 }
