@@ -1708,6 +1708,43 @@
         "build": {
           "build/net6.0/xunit.runner.visualstudio.props": {}
         }
+      },
+      "SPC.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "SPC.Shared": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SPC.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SPC.Core.dll": {}
+        }
+      },
+      "SPC.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "SPC.Core": "1.0.0",
+          "SPC.Shared": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SPC.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SPC.Infrastructure.dll": {}
+        }
+      },
+      "SPC.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/SPC.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SPC.Shared.dll": {}
+        }
       }
     }
   },
@@ -5497,11 +5534,27 @@
         "xunit.runner.visualstudio.2.5.3.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
+    },
+    "SPC.Core/1.0.0": {
+      "type": "project",
+      "path": "../../src/SPC.Core/SPC.Core.csproj",
+      "msbuildProject": "../../src/SPC.Core/SPC.Core.csproj"
+    },
+    "SPC.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../../src/SPC.Infrastructure/SPC.Infrastructure.csproj",
+      "msbuildProject": "../../src/SPC.Infrastructure/SPC.Infrastructure.csproj"
+    },
+    "SPC.Shared/1.0.0": {
+      "type": "project",
+      "path": "../../src/SPC.Shared/SPC.Shared.csproj",
+      "msbuildProject": "../../src/SPC.Shared/SPC.Shared.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
       "Microsoft.NET.Test.Sdk >= 17.8.0",
+      "SPC.Infrastructure >= 1.0.0",
       "coverlet.collector >= 6.0.0",
       "xunit >= 2.5.3",
       "xunit.runner.visualstudio >= 2.5.3"
@@ -5539,7 +5592,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\xampp\\htdocs\\dumu02.23.2025\\SPC.Solution\\src\\SPC.Infrastructure\\SPC.Infrastructure.csproj": {
+              "projectPath": "C:\\xampp\\htdocs\\dumu02.23.2025\\SPC.Solution\\src\\SPC.Infrastructure\\SPC.Infrastructure.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
