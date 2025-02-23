@@ -1,11 +1,49 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {}
+    "net8.0": {
+      "SPC.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "SPC.Shared": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SPC.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SPC.Core.dll": {}
+        }
+      },
+      "SPC.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/SPC.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SPC.Shared.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "SPC.Core/1.0.0": {
+      "type": "project",
+      "path": "../SPC.Core/SPC.Core.csproj",
+      "msbuildProject": "../SPC.Core/SPC.Core.csproj"
+    },
+    "SPC.Shared/1.0.0": {
+      "type": "project",
+      "path": "../SPC.Shared/SPC.Shared.csproj",
+      "msbuildProject": "../SPC.Shared/SPC.Shared.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0": []
+    "net8.0": [
+      "SPC.Core >= 1.0.0",
+      "SPC.Shared >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Eshan Adithaya\\.nuget\\packages\\": {},
@@ -39,7 +77,14 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\xampp\\htdocs\\dumu02.23.2025\\SPC.Solution\\src\\SPC.Core\\SPC.Core.csproj": {
+              "projectPath": "C:\\xampp\\htdocs\\dumu02.23.2025\\SPC.Solution\\src\\SPC.Core\\SPC.Core.csproj"
+            },
+            "C:\\xampp\\htdocs\\dumu02.23.2025\\SPC.Solution\\src\\SPC.Shared\\SPC.Shared.csproj": {
+              "projectPath": "C:\\xampp\\htdocs\\dumu02.23.2025\\SPC.Solution\\src\\SPC.Shared\\SPC.Shared.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
