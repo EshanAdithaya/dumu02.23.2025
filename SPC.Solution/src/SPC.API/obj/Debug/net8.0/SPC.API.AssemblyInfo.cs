@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SPC.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2146c73dae2e7f47c34b9d474d3ccf1d9f57eb10")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+15343bfec9f433761fb4c66686ee6c08c2345b94")]
 [assembly: System.Reflection.AssemblyProductAttribute("SPC.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SPC.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
