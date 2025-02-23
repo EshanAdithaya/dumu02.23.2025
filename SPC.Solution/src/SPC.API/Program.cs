@@ -4,6 +4,8 @@ using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using SPC.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore.MySql.Migrations;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -65,7 +67,20 @@ builder.Services.AddSwaggerGen(options =>
 // Configure MySQL
 var connectionString = "Server=194.163.171.218;Port=3306;Database=spc_db;User=root;Password=Black@123;";
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+{
+    options.UseMySql(
+        connectionString,
+        ServerVersion.AutoDetect(connectionString),
+        mysqlOptions =>
+        {
+            mysqlOptions.EnableRetryOnFailure(
+                maxRetryCount: 10,
+                maxRetryDelay: TimeSpan.FromSeconds(30),
+                errorNumbersToAdd: null);
+            // Specify the migrations assembly
+            mysqlOptions.MigrationsAssembly("SPC.Infrastructure");
+        });
+});
 
 var app = builder.Build();
 

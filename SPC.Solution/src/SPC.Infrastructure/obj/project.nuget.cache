@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "zTxNc9jFS3I=",
+  "dgSpecHash": "WONyP/iX5xo=",
   "success": true,
   "projectFilePath": "C:\\xampp\\htdocs\\dumu02.23.2025\\SPC.Solution\\src\\SPC.Infrastructure\\SPC.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -16,7 +16,9 @@
     "C:\\Users\\Eshan Adithaya\\.nuget\\packages\\microsoft.extensions.logging\\8.0.0\\microsoft.extensions.logging.8.0.0.nupkg.sha512",
     "C:\\Users\\Eshan Adithaya\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\Eshan Adithaya\\.nuget\\packages\\microsoft.extensions.options\\8.0.0\\microsoft.extensions.options.8.0.0.nupkg.sha512",
-    "C:\\Users\\Eshan Adithaya\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512"
+    "C:\\Users\\Eshan Adithaya\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "C:\\Users\\Eshan Adithaya\\.nuget\\packages\\mysqlconnector\\2.3.5\\mysqlconnector.2.3.5.nupkg.sha512",
+    "C:\\Users\\Eshan Adithaya\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\8.0.2\\pomelo.entityframeworkcore.mysql.8.0.2.nupkg.sha512"
   ],
   "logs": []
 }
