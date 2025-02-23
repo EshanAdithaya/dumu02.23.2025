@@ -1,0 +1,12 @@
+C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.Shared\bin\Debug\net8.0\SPC.Shared.deps.json
+C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.Shared\bin\Debug\net8.0\SPC.Shared.dll
+C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.Shared\bin\Debug\net8.0\SPC.Shared.pdb
+C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.Shared\obj\Debug\net8.0\SPC.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.Shared\obj\Debug\net8.0\SPC.Shared.AssemblyInfoInputs.cache
+C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.Shared\obj\Debug\net8.0\SPC.Shared.AssemblyInfo.cs
+C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.Shared\obj\Debug\net8.0\SPC.Shared.csproj.CoreCompileInputs.cache
+C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.Shared\obj\Debug\net8.0\SPC.Shared.sourcelink.json
+C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.Shared\obj\Debug\net8.0\SPC.Shared.dll
+C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.Shared\obj\Debug\net8.0\refint\SPC.Shared.dll
+C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.Shared\obj\Debug\net8.0\SPC.Shared.pdb
+C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.Shared\obj\Debug\net8.0\ref\SPC.Shared.dll
