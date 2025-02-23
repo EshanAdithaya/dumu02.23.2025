@@ -1,10 +1,12 @@
 // SPC.Infrastructure/Data/ApplicationDbContext.cs
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SPC.Core.Entities;
 
 namespace SPC.Infrastructure.Data;
 
-public class ApplicationDbContext : DbContext
+public class ApplicationDbContext : IdentityDbContext<User, IdentityRole<int>, int>
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
@@ -19,7 +21,7 @@ public class ApplicationDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        base.OnModelCreating(modelBuilder);
+        base.OnModelCreating(modelBuilder); // This is crucial for Identity tables
 
         // Configure Supplier
         modelBuilder.Entity<Supplier>(entity =>
@@ -60,16 +62,30 @@ public class ApplicationDbContext : DbContext
         // Configure OrderItem
         modelBuilder.Entity<OrderItem>(entity =>
         {
-            entity.Property(e => e.UnitPrice).HasPrecision(18, 2);
-            entity.Property(e => e.TotalPrice).HasPrecision(18, 2);
-            entity.HasOne<Order>()
-                .WithMany(o => o.OrderItems)  // Changed from Items to OrderItems
-                .HasForeignKey(oi => oi.OrderId)
-                .OnDelete(DeleteBehavior.Cascade);
-            entity.HasOne<Drug>()
+            entity.HasKey(e => e.Id);
+            
+            entity.Property(e => e.UnitPrice)
+                .HasPrecision(18, 2);
+            
+            entity.Property(e => e.TotalPrice)
+                .HasPrecision(18, 2);
+
+            entity.HasOne(d => d.Drug)
                 .WithMany()
-                .HasForeignKey(oi => oi.DrugId)
+                .HasForeignKey(d => d.DrugId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            entity.HasOne(d => d.Order)
+                .WithMany(p => p.OrderItems)
+                .HasForeignKey(d => d.OrderId)
+                .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        // Configure Identity tables
+        modelBuilder.Entity<User>(entity =>
+        {
+            entity.Property(e => e.FirstName).IsRequired().HasMaxLength(100);
+            entity.Property(e => e.LastName).IsRequired().HasMaxLength(100);
         });
     }
 }
