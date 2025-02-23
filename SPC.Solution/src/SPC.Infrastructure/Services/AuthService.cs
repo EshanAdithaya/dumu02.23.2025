@@ -47,14 +47,16 @@ public class AuthService : IAuthService
         user.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(7);
         await _userManager.UpdateAsync(user);
 
+#pragma warning disable CS8601 // Possible null reference assignment.
         return new AuthResponseDto
         {
             AccessToken = accessToken,
             RefreshToken = refreshToken,
             Email = user.Email,
             UserId = user.Id,
-            Roles = roles.ToList()
+            Roles = [.. roles]
         };
+#pragma warning restore CS8601 // Possible null reference assignment.
     }
 
     public async Task<AuthResponseDto> RegisterAsync(SignUpDto signUpDto)
@@ -119,14 +121,16 @@ public class AuthService : IAuthService
         user.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(7);
         await _userManager.UpdateAsync(user);
 
+#pragma warning disable CS8601 // Possible null reference assignment.
         return new AuthResponseDto
         {
             AccessToken = accessToken,
             RefreshToken = newRefreshToken,
             Email = user.Email,
             UserId = user.Id,
-            Roles = roles.ToList()
+            Roles = [.. roles]
         };
+#pragma warning restore CS8601 // Possible null reference assignment.
     }
 
     public async Task<bool> RevokeRefreshTokenAsync(string userEmail)

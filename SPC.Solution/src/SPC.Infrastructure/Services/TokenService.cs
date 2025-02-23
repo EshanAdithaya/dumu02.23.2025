@@ -21,20 +21,24 @@ public class TokenService : ITokenService
 
     public string GenerateAccessToken(User user, IList<string> roles)
     {
+#pragma warning disable CS8604 // Possible null reference argument.
         var claims = new List<Claim>
         {
             new Claim(ClaimTypes.Email, user.Email),
             new Claim(ClaimTypes.Name, user.UserName),
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
         };
+#pragma warning restore CS8604 // Possible null reference argument.
 
         foreach (var role in roles)
         {
             claims.Add(new Claim(ClaimTypes.Role, role));
         }
 
+#pragma warning disable CS8604 // Possible null reference argument.
         var secretKey = new SymmetricSecurityKey(
             Encoding.UTF8.GetBytes(_configuration["Jwt:SecretKey"]));
+#pragma warning restore CS8604 // Possible null reference argument.
         var signingCredentials = new SigningCredentials(
             secretKey, SecurityAlgorithms.HmacSha256);
 
@@ -59,6 +63,7 @@ public class TokenService : ITokenService
 
     public ClaimsPrincipal GetPrincipalFromExpiredToken(string token)
     {
+#pragma warning disable CS8604 // Possible null reference argument.
         var tokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = true,
@@ -70,6 +75,7 @@ public class TokenService : ITokenService
             IssuerSigningKey = new SymmetricSecurityKey(
                 Encoding.UTF8.GetBytes(_configuration["Jwt:SecretKey"]))
         };
+#pragma warning restore CS8604 // Possible null reference argument.
 
         var tokenHandler = new JwtSecurityTokenHandler();
         var principal = tokenHandler.ValidateToken(token, tokenValidationParameters, out var securityToken);

@@ -47,7 +47,9 @@ public class DrugService : IDrugService
         return _mapper.Map<DrugDto>(drug);
     }
 
-    public async Task<DrugDto> UpdateDrugAsync(int id, UpdateDrugDto drugDto)
+#pragma warning disable CS8613 // Nullability of reference types in return type doesn't match implicitly implemented member.
+    public async Task<DrugDto?> UpdateDrugAsync(int id, UpdateDrugDto drugDto)
+#pragma warning restore CS8613 // Nullability of reference types in return type doesn't match implicitly implemented member.
     {
         var existingDrug = await _context.Drugs
             .FirstOrDefaultAsync(d => d.Id == id);
