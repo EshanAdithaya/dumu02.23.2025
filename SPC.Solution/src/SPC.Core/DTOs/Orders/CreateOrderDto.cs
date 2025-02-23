@@ -6,11 +6,11 @@ public class CreateOrderDto
 {
     [Required]
     [StringLength(50)]
-    public string PharmacyId { get; set; }
+    public required string PharmacyId { get; set; }
 
     [Required]
     [MinLength(1)]
-    public List<CreateOrderItemDto> OrderItems { get; set; }
+    public required List<CreateOrderItemDto> OrderItems { get; set; }
 }
 
 public class CreateOrderItemDto
