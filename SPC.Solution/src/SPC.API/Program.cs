@@ -3,7 +3,6 @@ using Microsoft.OpenApi.Models;
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using SPC.Infrastructure.Data;
-using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql.Migrations;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using Microsoft.AspNetCore.Authentication.JwtBearer;

@@ -1,15 +1,12 @@
 C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.Core\bin\Debug\net8.0\SPC.Core.deps.json
 C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.Core\bin\Debug\net8.0\SPC.Core.dll
 C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.Core\bin\Debug\net8.0\SPC.Core.pdb
-C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.Core\bin\Debug\net8.0\SPC.Shared.dll
-C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.Core\bin\Debug\net8.0\SPC.Shared.pdb
 C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.Core\obj\Debug\net8.0\SPC.Core.csproj.AssemblyReference.cache
 C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.Core\obj\Debug\net8.0\SPC.Core.GeneratedMSBuildEditorConfig.editorconfig
 C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.Core\obj\Debug\net8.0\SPC.Core.AssemblyInfoInputs.cache
 C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.Core\obj\Debug\net8.0\SPC.Core.AssemblyInfo.cs
 C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.Core\obj\Debug\net8.0\SPC.Core.csproj.CoreCompileInputs.cache
 C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.Core\obj\Debug\net8.0\SPC.Core.sourcelink.json
-C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.Core\obj\Debug\net8.0\SPC.Core.csproj.Up2Date
 C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.Core\obj\Debug\net8.0\SPC.Core.dll
 C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.Core\obj\Debug\net8.0\refint\SPC.Core.dll
 C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.Core\obj\Debug\net8.0\SPC.Core.pdb

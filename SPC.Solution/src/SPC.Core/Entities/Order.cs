@@ -10,4 +10,5 @@ public class Order
     public List<OrderItem> Items { get; set; } = new();
     public DateTime CreatedAt { get; set; }
     public DateTime? UpdatedAt { get; set; }
+    public object OrderItems { get; set; }
 }
