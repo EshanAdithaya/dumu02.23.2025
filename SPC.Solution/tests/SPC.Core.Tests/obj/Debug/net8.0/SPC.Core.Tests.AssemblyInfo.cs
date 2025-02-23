@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SPC.Core.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1ea91062e43f5793287f87e5e12ca00f6ed910fe")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+df0a1c1c7bee35f9057c3ea6186b3eba61a7a778")]
 [assembly: System.Reflection.AssemblyProductAttribute("SPC.Core.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SPC.Core.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -143,3 +143,5 @@ C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.API\obj\Debug\net8.0\SPC.API
 C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.API\obj\Debug\net8.0\SPC.API.pdb
 C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.API\obj\Debug\net8.0\SPC.API.genruntimeconfig.cache
 C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.API\obj\Debug\net8.0\ref\SPC.API.dll
+C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.API\bin\Debug\net8.0\MySqlConnector.dll
+C:\xampp\htdocs\dumu02.23.2025\SPC.Solution\src\SPC.API\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll
