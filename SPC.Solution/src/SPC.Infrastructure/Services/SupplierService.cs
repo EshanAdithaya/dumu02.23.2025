@@ -60,7 +60,9 @@ public class SupplierService : ISupplierService
         return _mapper.Map<SupplierDto>(supplier);
     }
 
-    public async Task<SupplierDto> UpdateSupplierAsync(int id, UpdateSupplierDto supplierDto)
+#pragma warning disable CS8613 // Nullability of reference types in return type doesn't match implicitly implemented member.
+    public async Task<SupplierDto?> UpdateSupplierAsync(int id, UpdateSupplierDto supplierDto)
+#pragma warning restore CS8613 // Nullability of reference types in return type doesn't match implicitly implemented member.
     {
         var supplier = await _context.Suppliers
             .FirstOrDefaultAsync(s => s.Id == id);
