@@ -81,7 +81,9 @@ public class OrderService : IOrderService
         return _mapper.Map<OrderDto>(order);
     }
 
-    public async Task<OrderDto> UpdateOrderStatusAsync(int id, UpdateOrderStatusDto statusDto)
+#pragma warning disable CS8613 // Nullability of reference types in return type doesn't match implicitly implemented member.
+    public async Task<OrderDto?> UpdateOrderStatusAsync(int id, UpdateOrderStatusDto statusDto)
+#pragma warning restore CS8613 // Nullability of reference types in return type doesn't match implicitly implemented member.
     {
         var order = await _context.Orders.FindAsync(id);
         if (order == null)
