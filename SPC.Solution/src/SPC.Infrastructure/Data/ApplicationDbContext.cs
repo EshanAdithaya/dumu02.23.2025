@@ -13,7 +13,7 @@ public class ApplicationDbContext : DbContext
 
     public DbSet<Supplier> Suppliers { get; set; }
     public DbSet<Drug> Drugs { get; set; }
-    public DbSet<Stock> Stocks { get; set; }  // Changed from Stack to Stock
+    public DbSet<Stock> Stocks { get; set; }
     public DbSet<Order> Orders { get; set; }
     public DbSet<OrderItem> OrderItems { get; set; }
 
@@ -63,7 +63,7 @@ public class ApplicationDbContext : DbContext
             entity.Property(e => e.UnitPrice).HasPrecision(18, 2);
             entity.Property(e => e.TotalPrice).HasPrecision(18, 2);
             entity.HasOne<Order>()
-                .WithMany(o => o.Items)
+                .WithMany(o => o.OrderItems)  // Changed from Items to OrderItems
                 .HasForeignKey(oi => oi.OrderId)
                 .OnDelete(DeleteBehavior.Cascade);
             entity.HasOne<Drug>()
