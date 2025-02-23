@@ -8,7 +8,7 @@ using SPC.Infrastructure.Data;
 
 namespace SPC.Infrastructure.Services;
 
-public class OrderService : IOrderService 
+public class OrderService : IOrderService
 {
     private readonly ApplicationDbContext _context;
     private readonly IMapper _mapper;
@@ -48,6 +48,19 @@ public class OrderService : IOrderService
         var orderItems = new List<OrderItem>();
         decimal totalAmount = 0;
 
+        var order = new Order
+        {
+            PharmacyId = orderDto.PharmacyId,
+            Status = OrderStatus.Pending,
+            TotalAmount = 0, // Will be updated after adding items
+            CreatedAt = DateTime.UtcNow,
+            OrderItems = new List<OrderItem>()
+        };
+
+        // Create order first to get the ID
+        _context.Orders.Add(order);
+        await _context.SaveChangesAsync();
+
         foreach (var item in orderDto.OrderItems)
         {
             var drug = await _context.Drugs.FindAsync(item.DrugId);
@@ -56,7 +69,10 @@ public class OrderService : IOrderService
 
             var orderItem = new OrderItem
             {
+                OrderId = order.Id,
+                Order = order,
                 DrugId = item.DrugId,
+                Drug = drug,
                 Quantity = item.Quantity,
                 UnitPrice = drug.UnitPrice,
                 TotalPrice = drug.UnitPrice * item.Quantity
@@ -66,16 +82,10 @@ public class OrderService : IOrderService
             totalAmount += orderItem.TotalPrice;
         }
 
-        var order = new Order
-        {
-            PharmacyId = orderDto.PharmacyId,
-            Status = OrderStatus.Pending,
-            TotalAmount = totalAmount,
-            CreatedAt = DateTime.UtcNow,
-            OrderItems = orderItems
-        };
-
-        _context.Orders.Add(order);
+        // Update order with items and total amount
+        order.OrderItems = orderItems;
+        order.TotalAmount = totalAmount;
+        
         await _context.SaveChangesAsync();
 
         return _mapper.Map<OrderDto>(order);
