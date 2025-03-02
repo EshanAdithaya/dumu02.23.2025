@@ -15,6 +15,19 @@ using AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add CORS configuration
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", 
+        builder =>
+        {
+            builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+        });
+});
+
 // Add services to the container.
 builder.Services.AddControllers();
 
@@ -140,7 +153,7 @@ using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
     db.Database.Migrate();
-}
+}   
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -152,6 +165,9 @@ if (app.Environment.IsDevelopment())
         c.RoutePrefix = string.Empty; // Serves the Swagger UI at the app's root
     });
 }
+
+// Use CORS before authentication and authorization middleware
+app.UseCors("AllowAll");
 
 app.UseAuthentication();
 app.UseAuthorization();
